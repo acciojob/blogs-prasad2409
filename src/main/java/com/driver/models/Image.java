@@ -21,7 +21,7 @@ public class Image {
     private int id;
 
     private String description;
-    private String dimension;
+    private String dimensions;
 
     @ManyToOne
     @JoinColumn
