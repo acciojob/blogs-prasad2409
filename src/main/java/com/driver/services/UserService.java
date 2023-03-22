@@ -18,10 +18,9 @@ public class UserService {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        user.setFirstName("test");
-        user.setLastName("test");
-        User newUser =userRepository3.save(user);
-        return newUser;
+
+        userRepository3.save(user);
+        return user;
     }
 
     public void deleteUser(int userId){

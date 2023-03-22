@@ -7,6 +7,8 @@ import com.driver.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class BlogService {
     @Autowired
@@ -21,10 +23,13 @@ public class BlogService {
         Blog blog = new Blog();
         blog.setTitle(title);
         blog.setContent(content);
+        blog.setPubDate(new Date());
         blog.setUser(user);
-        Blog newBlog =blogRepository1.save(blog);
 
-        return newBlog;
+        user.getBlogList().add(blog);
+        userRepository1.save(user);
+
+        return blog;
     }
 
     public void deleteBlog(int blogId){
